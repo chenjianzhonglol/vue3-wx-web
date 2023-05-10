@@ -1,0 +1,858 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+  <link rel="stylesheet" href="../../../../node_modules/vant/lib/index.css" />
+  <script src="../../../../node_modules/vue/dist/vue.global.js"></script>
+  <script src="../../../../node_modules/vant/lib/vant.min.js"></script>
+
+  <link rel="stylesheet" href="../../../assets/styles/cyvant.css" />
+  <link rel="stylesheet" href="../../../assets/styles/common.css" />
+  <link rel="stylesheet" href="../../../assets/styles/icon/index.css" />
+  <link rel="stylesheet" href="../../../html/components/header/index.css" />
+  <link rel="stylesheet" href="../../../html/components/tabs/index.css" />
+  <link rel="stylesheet" href="../../../html/components/operation/index.css" />
+  <link rel="stylesheet" href="../../../html/components/image/index.css" />
+  <link rel="stylesheet" href="../../../html/components/bet/index.css" />
+  <link rel="stylesheet" href="../../../html/components/footer/index.css" />
+  <link rel="stylesheet" href="../../../html/components/menu/index.css" />
+</head>
+
+<body theme-color="orange">
+  <div id="app">
+    <div class="mod-wrapper van-safe-area-top van-safe-area-bottom">
+      <div class="bet-download-x">
+        <img src="../../../assets/images/download.png" alt="">
+        <i class="bet-download-close"></i>
+      </div>
+      <van-sticky :offset-top="0">
+        <header class="cm-header">
+          <div class="cm-hd-left">
+            <i class="cm-hd-search"></i>
+            <div class="cm-hd-logo">
+              <img src="../../../assets/images/logo.png" alt="">
+            </div>
+          </div>
+          <div class="cm-hd-right">
+            <button class="cm-hd-login">Login</button>
+            <button class="cm-hd-register">Register</button>
+          </div>
+        </header>
+      </van-sticky>
+      <main class="mod-wrap">
+        <div class="cm-tabs">
+          <van-tabs v-model:active="active" :line-width="0" :border="false">
+            <van-tab title="Soccer">
+              <van-swipe class="bet-swiper" :autoplay="3000" :show-indicators="false">
+                <van-swipe-item><img src="../../../assets/images/default.png" alt="" class="bet-banner-pic">
+                </van-swipe-item>
+                <van-swipe-item><img src="../../../assets/images/default.png" alt=""
+                    class="bet-banner-pic"></van-swipe-item>
+                <van-swipe-item><img src="../../../assets/images/download.png" alt=""
+                    class="bet-banner-pic"></van-swipe-item>
+              </van-swipe>
+              <div class="bet-diamond-area">
+                <ul class="diamond-area">
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/today.png" class="cy-image__img"
+                        style="object-fit: contain;" alt="Today" />
+                    </div>
+                    <span class="bet-diamond-txt">Today</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/countries.png" class="cy-image__img"
+                        style="object-fit: contain;" alt="Countries" />
+                    </div>
+                    <span class="bet-diamond-txt">Countries</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/best.png" class="cy-image__img" style="object-fit: contain;"
+                        alt="Best Odds" />
+                    </div>
+                    <span class="bet-diamond-txt">Best Odds</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/filter.png" class="cy-image__img"
+                        style="object-fit: contain;" alt="Odds Filter" />
+                    </div>
+                    <span class="bet-diamond-txt">Odds Filter</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/search.png" class="cy-image__img"
+                        style="object-fit: contain;" alt="Search" />
+                    </div>
+                    <span class="bet-diamond-txt">Search</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                        alt="Kya Binafsi" />
+                    </div>
+                    <span class="bet-diamond-txt">Kya Binafsi</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                        alt="Load Code" />
+                    </div>
+                    <span class="bet-diamond-txt">Load Code</span>
+                  </li>
+                  <li class="bet-diamond-col">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/super.png" class="cy-image__img"
+                        style="object-fit: contain;" alt="Super Odds" />
+                    </div>
+                    <span class="bet-diamond-txt">Super Odds</span>
+                  </li>
+                  <li class="bet-diamond-col" @click="showPopup1">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/matches.png" class="cy-image__img"
+                        style="object-fit: contain;" alt="My Matches" />
+                    </div>
+                    <span class="bet-diamond-txt">My Matches</span>
+                  </li>
+                  <li class="bet-diamond-col" @click="showPopup">
+                    <div class="cy-image" style="width: 52px; height: 52px;">
+                      <img src="../../../assets/images/home/more.png" class="cy-image__img" style="object-fit: contain;"
+                        alt="More" />
+                    </div>
+                    <span class="bet-diamond-txt">More</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="bet-adx-double">
+                <div class="adx-double-item">
+                  <img src="../../../assets/images/default.png" alt="">
+                </div>
+                <div class="adx-double-item">
+                  <img src="../../../assets/images/download.png" alt="">
+                </div>
+              </div>
+              <div class="bet-game">
+                <div class="bet-game-tabs">
+                  <van-tabs v-model:active="active" :line-width="0">
+                    <van-tab title="live" title-class="tab-live-icon" disabled></van-tab>
+                    <van-tab title="1x2">
+                      <div class="bet-game-x">
+                        <div class="bet-game-msg">
+                          <span class="game-time">24/03 Friday</span>
+                          <div class="game-cols">
+                            <span class="game-col">1</span>
+                            <span class="game-col">X</span>
+                            <span class="game-col">2</span>
+                          </div>
+                        </div>
+                        <section class="bet-game-item g-euro">
+                          <div class="bet-game-classify">
+                            <i class="bet-hot-icon"></i>
+                            <strong class="bet-time">28<sup class="c-dot">′</sup>33<sup class="c-dot">″</sup></strong>
+                            <span class="van-ellipsis">International - European Championship Qual-European
+                              Championship</span>
+                            <span class="iconfont icon-trend"></span>
+                          </div>
+                          <div class="bet-game-team">
+                            <div class="team-cols">
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="France" />
+                                </div>
+                                <span class="team-name van-ellipsis">France</span>
+                              </div>
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="Croatia" />
+                                </div>
+                                <span class="team-name van-ellipsis">Croatia</span>
+                              </div>
+                            </div>
+                            <div class="team-score">
+                              <div class="team-score-txt c-high">1</div>
+                              <div class="team-score-txt">0</div>
+                            </div>
+                            <div class="game-cols game-odds">
+                              <span class="game-col active">1.78</span>
+                              <span class="game-col g-down">3.94</span>
+                              <span class="game-col g-up">4.28</span>
+                            </div>
+                          </div>
+                          <a href="" class="team-market-txt">+88Market</a>
+                        </section>
+                        <section class="bet-game-item">
+                          <div class="bet-game-classify">
+                            <i class="bet-hot-icon"></i>
+                            <strong class="bet-time">28<sup class="c-dot">′</sup>33<sup class="c-dot">″</sup></strong>
+                            <span class="van-ellipsis">International - European Championship Qual-European
+                              Championship</span>
+                            <span class="iconfont icon-trend"></span>
+                          </div>
+                          <div class="bet-game-team">
+                            <div class="team-cols">
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="France" />
+                                </div>
+                                <span class="team-name van-ellipsis">France</span>
+                              </div>
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="Croatia" />
+                                </div>
+                                <span class="team-name van-ellipsis">Croatia</span>
+                              </div>
+                            </div>
+                            <div class="team-score">
+                              <div class="team-score-txt c-high">1</div>
+                              <div class="team-score-txt">0</div>
+                            </div>
+                            <div class="game-cols game-odds">
+                              <span class="game-col">
+                                <span class="iconfont icon-lock"></span>
+                              </span>
+                              <span class="game-col g-down active">3.94</span>
+                              <span class="game-col g-up active">4.28</span>
+                            </div>
+                          </div>
+                          <a href="" class="team-market-txt">+88Market</a>
+                        </section>
+                        <!-- arrow goes up +  g-up  -->
+                        <button class="bet-game-more">All Events 2 </button>
+                      </div>
+                    </van-tab>
+                    <van-tab title="Over/Under">2</van-tab>
+                    <van-tab title="Double Chance">3</van-tab>
+                    <van-tab title="+4Markets">4</van-tab>
+                    <van-tab title="GG/NG">5</van-tab>
+                    <van-tab title="DNB"></van-tab>
+                    <van-tab title="Odd/Even"></van-tab>
+                    <van-tab title="1st Half-1x2"></van-tab>
+                    <van-tab title="1st Goal"></van-tab>
+                  </van-tabs>
+                </div>
+              </div>
+              <div class="bet-game">
+                <div class="bet-game-tabs">
+                  <van-tabs v-model:active="active" :line-width="0">
+                    <van-tab title="" title-class="tab-cup-icon" disabled></van-tab>
+                    <van-tab title="Highlights">
+                      <van-dropdown-menu class="filter-dropdown">
+                        <van-dropdown-item title="Time" ref="item">
+                          <van-cell value-class="txt-left">
+                            All<span class="c-light-txt"> (1299）</span>
+                          </van-cell>
+                        </van-dropdown-item>
+                        <van-dropdown-item title="Leagues" ref="item">
+                          <van-cell value-class="txt-left">
+                            All<span class="c-light-txt"> (1299）</span>
+                          </van-cell>
+                        </van-dropdown-item>
+                        <van-dropdown-item title="Odds" ref="item">
+                          <van-cell value-class="txt-left">
+                            All<span class="c-light-txt"> (1299）</span>
+                          </van-cell>
+                        </van-dropdown-item>
+                        <van-dropdown-item title="Sort By" ref="item">
+                          <van-cell value-class="txt-left">
+                            All<span class="c-light-txt"> (1299）</span>
+                          </van-cell>
+                        </van-dropdown-item>
+                      </van-dropdown-menu>
+                      <div class="bet-menus">
+                        <div class="bet-menu-list">
+                          <span class="bet-menu-col active">1X2</span>
+                          <span class="bet-menu-col">Over/Unde</span>
+                          <span class="bet-menu-col">Double Chance</span>
+                          <span class="bet-menu-col">GG/NG</span>
+                        </div>
+                        <i class="bet-menu-more"></i>
+                      </div>
+                      <div class="bet-game-x">
+                        <div class="bet-game-msg">
+                          <span class="game-time">27/03 Monday</span>
+                          <div class="game-cols">
+                            <span class="game-col">1</span>
+                            <span class="game-col">X</span>
+                            <span class="game-col">2</span>
+                          </div>
+                        </div>
+                        <section class="bet-game-item g-euro">
+                          <div class="bet-game-classify">
+                            <i class="bet-hot-icon"></i>
+                            <strong class="bet-time c-blue">19:00</strong>
+                            <span class="van-ellipsis">International - European Championship Qual-European
+                              Championship</span>
+                            <span class="iconfont icon-trend"></span>
+                          </div>
+                          <div class="bet-game-team">
+                            <div class="team-cols">
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="France" />
+                                </div>
+                                <span class="team-name van-ellipsis">France</span>
+                              </div>
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="Croatia" />
+                                </div>
+                                <span class="team-name van-ellipsis">Croatia</span>
+                              </div>
+                            </div>
+                            <!-- <div class="team-score">
+                              <div class="team-score-txt c-high">1</div>
+                              <div class="team-score-txt">0</div>
+                            </div> -->
+                            <div class="game-cols game-odds">
+                              <span class="game-col g-up">1.78</span>
+                              <span class="game-col">3.94</span>
+                              <span class="game-col g-down">4.28</span>
+                            </div>
+                          </div>
+                          <a href="" class="team-market-txt">+88Market</a>
+                        </section>
+                        <section class="bet-game-item">
+                          <div class="bet-game-classify">
+                            <!-- <i class="bet-hot-icon"></i> -->
+                            <strong class="bet-time c-blue">20:30</strong>
+                            <span class="van-ellipsis">International - European Championship</span>
+                            <span class="iconfont icon-trend"></span>
+                          </div>
+                          <div class="bet-game-team">
+                            <div class="team-cols">
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="France" />
+                                </div>
+                                <span class="team-name van-ellipsis">France</span>
+                              </div>
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="Croatia" />
+                                </div>
+                                <span class="team-name van-ellipsis">Croatia</span>
+                              </div>
+                            </div>
+                            <!-- <div class="team-score">
+                              <div class="team-score-txt c-high">1</div>
+                              <div class="team-score-txt">0</div>
+                            </div> -->
+                            <div class="game-cols game-odds">
+                              <span class="game-col">1.78</span>
+                              <span class="game-col">3.94</span>
+                              <span class="game-col">4.28</span>
+                            </div>
+                          </div>
+                          <a href="" class="team-market-txt">+88Market</a>
+                        </section>
+                        <div class="bet-adx-sm">
+                          <img src="../../../assets/images/download.png" alt="">
+                        </div>
+                        <section class="bet-game-item">
+                          <div class="bet-game-classify">
+                            <!-- <i class="bet-hot-icon"></i> -->
+                            <strong class="bet-time c-blue">14:00</strong>
+                            <span class="van-ellipsis">International - European Championship</span>
+                            <span class="iconfont icon-trend"></span>
+                          </div>
+                          <div class="bet-game-team">
+                            <div class="team-cols">
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="France" />
+                                </div>
+                                <span class="team-name van-ellipsis">France</span>
+                              </div>
+                              <div class="team-col">
+                                <div class="cy-image" style="width: 16px; height: 16px;">
+                                  <img src="../../../assets/images/kenya.png" class="cy-image__img"
+                                    style="object-fit: contain;" alt="Croatia" />
+                                </div>
+                                <span class="team-name van-ellipsis">Croatia</span>
+                              </div>
+                            </div>
+                            <!-- <div class="team-score">
+                              <div class="team-score-txt c-high">1</div>
+                              <div class="team-score-txt">0</div>
+                            </div> -->
+                            <div class="game-cols game-odds">
+                              <span class="game-col">1.78</span>
+                              <span class="game-col">3.94</span>
+                              <span class="game-col">4.28</span>
+                            </div>
+                          </div>
+                          <a href="" class="team-market-txt">+88Market</a>
+                        </section>
+                      </div>
+                    </van-tab>
+                    <van-tab title="Today">2</van-tab>
+                    <van-tab title="Upcoming">3</van-tab>
+                    <van-tab title="Top Leagues">4</van-tab>
+                    <van-tab title="Countries">5</van-tab>
+                    <van-tab title="My matches"></van-tab>
+                    <van-tab title="EPL"></van-tab>
+                  </van-tabs>
+                </div>
+              </div>
+              <button class="cm-back-top">Back to Top</button>
+            </van-tab>
+            <van-tab title="Live" badge="112">2</van-tab>
+            <!--casino  -->
+            <van-tab title="Casino" title-class="casino">3</van-tab>
+            <van-tab title="Jackpot">4</van-tab>
+            <van-tab title="Virtual">5</van-tab>
+            <van-tab title="Aviator">6</van-tab>
+            <van-tab title="My Bets">7</van-tab>
+          </van-tabs>
+          <!-- <div class="cm-tabs-more"></div> -->
+          <van-dropdown-menu class="tabs-dropdown">
+            <van-dropdown-item title-class="cm-tabs-more" ref="item">
+              123
+            </van-dropdown-item>
+          </van-dropdown-menu>
+        </div>
+        <footer class="cm-footer">
+          <i class="f-kenyabet-icon">kenyabet</i>
+          <dl class="f-footer-space">
+            <dt class="f-space-lg">
+              <p>xxxxx Kenya is licensed by National Lottery Regulatory Commission under License No. xxxxxx.</p>
+              <div class="f-space-age">18+</div>
+              <p>Players must be 18 or older to register or play at MSport. Please note that gambles may have negative
+                effects if not made with temperance.</p>
+              <div class="f-space-methods">Payment Methods</div>
+              <i class="f-kenyabet-sm">kenyabet</i>
+            </dt>
+            <dd class="f-space-sm">
+              <h4 class="f-general">General</h4>
+              <a href="">T&C</a>
+              <a href="">How to play</a>
+              <a href="">About Us</a>
+              <a href="">Contact Us</a>
+              <div class="f-service">
+                <span class="iconfont icon-service"></span>
+                Live Chat
+              </div>
+              <a href="">24/7customer service &gt;</a>
+            </dd>
+          </dl>
+          <div class="f-footer-tips">
+            Betting is addictive and can be psychologically harmful.
+          </div>
+          <div class="f-footer-copyright">
+            @2023 xxx.All rights reserved
+          </div>
+        </footer>
+      </main>
+      <div class="fix-adx-right">
+
+      </div>
+      <!-- menu 1-->
+      <van-popup class="popup-menu" v-model:show="showMenu" closeable position="left">
+        <van-nav-bar title="" left-arrow :border="false"></van-nav-bar>
+        <div class="popup-menu-main">
+          <section class="bet-diamond-area">
+            <h3 class="popup-menu-tit">My Home page Menu</h3>
+            <ul class="diamond-area">
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/today.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Today" />
+                </div>
+                <span class="bet-diamond-txt">Today</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/countries.png" class="cy-image__img"
+                    style="object-fit: contain;" alt="Countries" />
+                </div>
+                <span class="bet-diamond-txt">Countries</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/best.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Best Odds" />
+                </div>
+                <span class="bet-diamond-txt">Best Odds</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/filter.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Odds Filter" />
+                </div>
+                <span class="bet-diamond-txt">Odds Filter</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/search.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Search" />
+                </div>
+                <span class="bet-diamond-txt">Search</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Kya Binafsi" />
+                </div>
+                <span class="bet-diamond-txt">Kya Binafsi</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Load Code" />
+                </div>
+                <span class="bet-diamond-txt">Load Code</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/super.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Super Odds" />
+                </div>
+                <span class="bet-diamond-txt">Super Odds</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/matches.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="My Matches" />
+                </div>
+                <span class="bet-diamond-txt">My Matches</span>
+              </li>
+              <div class="bet-diamond-col" @click="showPopup">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/more.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="More" />
+                </div>
+                <span class="bet-diamond-txt">More</span>
+              </div>
+            </ul>
+          </section>
+          <section class="bet-diamond-area">
+            <h3 class="popup-menu-tit">Popular Menu</h3>
+            <ul class="diamond-area">
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/today.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Top Leagues" />
+                </div>
+                <span class="bet-diamond-txt">Top Leagues</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/countries.png" class="cy-image__img"
+                    style="object-fit: contain;" alt="Tomorrow" />
+                </div>
+                <span class="bet-diamond-txt">Tomorrow</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/best.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Booking Code" />
+                </div>
+                <span class="bet-diamond-txt">Booking Code</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/filter.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Upcoming" />
+                </div>
+                <span class="bet-diamond-txt">Upcoming</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/search.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="EPL" />
+                </div>
+                <span class="bet-diamond-txt">EPL</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Highlights" />
+                </div>
+                <span class="bet-diamond-txt">Highlights</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Promotion" />
+                </div>
+                <span class="bet-diamond-txt">Promotion</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/super.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Profile" />
+                </div>
+                <span class="bet-diamond-txt">Profile</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/matches.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Livescore" />
+                </div>
+                <span class="bet-diamond-txt">Livescore</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Promo Code" />
+                </div>
+                <span class="bet-diamond-txt">Promo Code</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Deposit" />
+                </div>
+                <span class="bet-diamond-txt">Deposit</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/super.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Withdraw" />
+                </div>
+                <span class="bet-diamond-txt">Withdraw</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="popup-menu-service">
+          <span class="iconfont icon-service"></span>24/7customer service &gt;
+        </div>
+      </van-popup>
+      <!-- menu 2-->
+      <van-popup class="popup-menu" v-model:show="showMenu1" position="left">
+        <van-nav-bar title="" left-arrow :border="false">
+          <template #right>
+            <van-button class="btn-reset" round size="small" type="">Reset</van-button>
+            <van-button class="btn-done" round plain size="small">Done</van-button>
+          </template>
+        </van-nav-bar>
+        <div class="popup-menu-main">
+          <section class="bet-diamond-area">
+            <h3 class="popup-menu-tit">My Home page Menu1</h3>
+            <p class="popup-menu-tips">Drag the icon to sort, or drag infrequently used menu to the "Popular Menu" below
+            </p>
+            <ul class="diamond-area">
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/today.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Today" />
+                </div>
+                <span class="bet-diamond-txt">Today</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/countries.png" class="cy-image__img"
+                    style="object-fit: contain;" alt="Countries" />
+                </div>
+                <span class="bet-diamond-txt">Countries</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/best.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Best Odds" />
+                </div>
+                <span class="bet-diamond-txt">Best Odds</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/filter.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Odds Filter" />
+                </div>
+                <span class="bet-diamond-txt">Odds Filter</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/search.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Search" />
+                </div>
+                <span class="bet-diamond-txt">Search</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Kya Binafsi" />
+                </div>
+                <span class="bet-diamond-txt">Kya Binafsi</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Load Code" />
+                </div>
+                <span class="bet-diamond-txt">Load Code</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/super.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Super Odds" />
+                </div>
+                <span class="bet-diamond-txt">Super Odds</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/matches.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="My Matches" />
+                </div>
+                <span class="bet-diamond-txt">My Matches</span>
+              </li>
+              <div class="bet-diamond-col" @click="showPopup">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/more.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="More" />
+                </div>
+                <span class="bet-diamond-txt">More</span>
+              </div>
+            </ul>
+          </section>
+          <section class="bet-diamond-area">
+            <h3 class="popup-menu-tit">Popular Menu</h3>
+            <p class="popup-menu-tips">Drag the icon to sort, or drag your favorite menu to the "My Home page Menu"
+              above</p>
+            <ul class="diamond-area">
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/today.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Top Leagues" />
+                </div>
+                <span class="bet-diamond-txt">Top Leagues</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/countries.png" class="cy-image__img"
+                    style="object-fit: contain;" alt="Tomorrow" />
+                </div>
+                <span class="bet-diamond-txt">Tomorrow</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/best.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Booking Code" />
+                </div>
+                <span class="bet-diamond-txt">Booking Code</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/filter.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Upcoming" />
+                </div>
+                <span class="bet-diamond-txt">Upcoming</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/search.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="EPL" />
+                </div>
+                <span class="bet-diamond-txt">EPL</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Highlights" />
+                </div>
+                <span class="bet-diamond-txt">Highlights</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Promotion" />
+                </div>
+                <span class="bet-diamond-txt">Promotion</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/super.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Profile" />
+                </div>
+                <span class="bet-diamond-txt">Profile</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/matches.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Livescore" />
+                </div>
+                <span class="bet-diamond-txt">Livescore</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/kya.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Promo Code" />
+                </div>
+                <span class="bet-diamond-txt">Promo Code</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/load.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Deposit" />
+                </div>
+                <span class="bet-diamond-txt">Deposit</span>
+              </li>
+              <li class="bet-diamond-col">
+                <div class="cy-image" style="width: 48px; height: 48px;">
+                  <img src="../../../assets/images/home/super.png" class="cy-image__img" style="object-fit: contain;"
+                    alt="Withdraw" />
+                </div>
+                <span class="bet-diamond-txt">Withdraw</span>
+              </li>
+            </ul>
+            <p class="popup-menu-tips">Tip:The system will automatically adjust the display of the application for you
+              based on your usage habits</p>
+          </section>
+        </div>
+        <!-- <div class="popup-menu-service">
+          <span class="iconfont icon-service"></span>24/7customer service &gt;
+        </div> -->
+      </van-popup>
+    </div>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue;
+    const app = createApp({
+      setup() {
+        const activeNames = ref(['0']);
+        const showMenu = ref(false);
+        const showMenu1 = ref(false);
+        const showPopover = ref(false);
+        const showPopup = () => {
+          showMenu.value = true;
+        };
+        const showPopup1 = () => {
+          showMenu1.value = true;
+        };
+        const onSelect = (action) => showToast(action.text);
+        return {
+          activeNames,
+          showMenu,
+          showPopup,
+          showMenu1,
+          showPopup1,
+          onSelect,
+          showPopover,
+        };
+      },
+      data() {
+        return {
+          // active: '1'
+        };
+      }
+    });
+    app.use(vant);
+    app.mount('#app');
+  </script>
+</body>
+
+
+</html>

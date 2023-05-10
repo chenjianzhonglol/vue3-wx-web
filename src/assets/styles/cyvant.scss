@@ -1,0 +1,159 @@
+:root {
+  body[theme-color='orange'] {
+    --theme-txt: #fff;
+    --theme-txt-1: #a2a2a7;
+    --theme-txt-2: #566169;
+    --theme-bg: #fa5918;
+    --theme-bg-1: #d03c00;
+    --theme-bg-2: #fe7400;
+    --theme-bg-3: #ffaf8e;
+    --theme-bg-4: #fe9800;
+    --theme-bg-5: #f8501d;
+    --theme-bg-6: #ffc329;
+    --theme-black: #000;
+    --theme-black-2: #222;
+    --theme-black-3: #333;
+    --theme-black-4: #201f1e;
+    --theme-red: #ff0402;
+    --theme-red-1: rgba(222, 27, 1, 0.75);
+    --theme-blue: #377dba;
+    --theme-green: #12b139;
+    --theme-rose: #d00096;
+    --theme-purple: #4200ff;
+
+    // Gradient Colors
+    --theme-gradient: linear-gradient(180deg, var(--theme-bg-6), var(--theme-bg));
+    --theme-gradient-1: linear-gradient(180deg, var(--theme-rose), var(--theme-purple));
+    --theme-gradient-2: linear-gradient(90deg, var(--theme-black), #fff);
+    // --theme-gradient-3: linear-gradient(
+    //   180deg,
+    //   var(--theme-bg),
+    //   var(--theme-bg) 88px,
+    //   var(--theme-black) 196px,
+    //   var(--theme-black)
+    // );
+    --theme-gradient-3: linear-gradient(
+      180deg,
+      var(--theme-bg),
+      var(--theme-bg) 44px,
+      var(--theme-black) 108px,
+      var(--theme-black)
+    );
+    --theme-gradient-4: linear-gradient(-90deg, rgba(255, 195, 41, 0.8), rgba(250, 89, 24, 0));
+    --theme-gradient-5: linear-gradient(90deg, rgba(250, 89, 24, 0), var(--theme-bg) 60%, var(--theme-bg));
+    --theme-gradient-6: linear-gradient(180deg, var(--theme-black-3), var(--theme-black) 20px, var(--theme-black));
+    --theme-gradient-7: linear-gradient(90deg, rgba(0, 0, 0, 0), var(--theme-black));
+    --theme-gradient-8: linear-gradient(90deg, var(--theme-bg-4), var(--theme-bg-5));
+    --theme-gradient-9: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    // Shadow
+    --theme-shadow: 0 2px 2px rgba(255, 0, 137, 0.5);
+    --theme-shadow-1: 0 20px 20px rgba(0, 0, 0, 0.25);
+
+    // tab
+    --van-tab-text-color: var(--theme-txt);
+    --van-tab-active-text-color: var(--theme-bg-2);
+    --van-tabs-nav-background: rgba(255, 255, 255, 0);
+  }
+  &:root {
+    // Color Palette
+    --van-gray-1: #f6f6f6;
+    --van-gray-2: #f2f3f5;
+    --van-gray-3: #e8e8e8;
+    --van-gray-4: #d8d8d8;
+    --van-gray-5: #999;
+    --van-gray-6: #666;
+    --van-gray-7: #717171;
+    --van-gray-8: #333;
+    --van-red: #f94948;
+    --van-blue: #5388ff;
+    --van-blue-dark: #3775ff;
+    --van-blue-light: #0ebcff;
+    --van-orange: #ff804c;
+    --van-orange-dark: #ed6a0c;
+    --van-orange-light: #fffbe8;
+    --van-green: #06b588;
+    --van-green-light: #56ceb0;
+    --van-green-grass: #36eb18;
+    --van-yellow: #ffdf46;
+    --van-yellow-light: #fff4bd;
+    --van-purple: #7b57ff;
+
+    // Gradient Colors
+    --van-gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
+    --van-gradient-orange: linear-gradient(135deg, #ffdb00, #fff163);
+
+    // Component Colors
+    --van-primary-color: var(--van-yellow);
+
+    --van-base-font: 'PingFang SC', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+      sans-serif;
+
+    // nav-bar
+    // prettier-ignore
+    --van-nav-bar-height: 46PX;
+
+    // button
+    --van-nav-bar-icon-color: var(--van-gray-8);
+    --van-button-primary-color: var(--van-gray-8);
+    --van-button-small-height: 28px;
+
+    // tabbar
+    --van-tabbar-item-font-size: 11px;
+    --van-tabbar-item-text-color: var(--van-gray-6);
+    --van-tabbar-item-active-color: var(--van-gray-8);
+
+    // swiper
+    --van-swipe-indicator-size: 4px;
+    --van-swipe-indicator-margin: 8px;
+
+    // arrow
+    --van-cell-right-icon-color: #ccc;
+
+    // tag
+    --van-tag-font-size: 10px;
+    --van-tag-padding: 0 6px;
+
+    // tab
+    --van-tabs-bottom-bar-width: 20px;
+
+    // slidebar
+    --van-sidebar-width: 86px;
+    --van-sidebar-padding: 13px 6px;
+
+    // pull-refresh
+    --van-pull-refresh-head-font-size: 12px;
+    --van-pull-refresh-head-text-color: var(--van-gray-5);
+
+    // header
+    --van-nav-bar-arrow-size: 20px;
+    --van-nav-bar-title-font-size: 18px;
+
+    // index-anchor
+    --van-index-anchor-font-size: 12px;
+    --van-index-anchor-font-weight: 500;
+
+    // picker
+    --van-picker-confirm-action-color: var(--van-orange-dark);
+    --van-dialog-confirm-button-text-color: var(--van-orange-dark);
+
+    // input
+    --van-field-right-icon-color: #999;
+    --van-field-placeholder-text-color: #ccc;
+
+    // back-top
+    --van-back-top-right: 15px;
+    --van-back-top-bottom: 60px;
+    --van-back-top-background: rgba(102, 102, 102, 0.8);
+  }
+}
+// var-bar
+.van-nav-bar {
+  // prettier-ignore
+  --van-line-height-lg: 22PX;
+  // prettier-ignore
+  --van-nav-bar-arrow-size: 20PX;
+  // prettier-ignore
+  --van-nav-bar-title-font-size: 18PX;
+  // prettier-ignore
+  --van-font-size-md: 14PX;
+}

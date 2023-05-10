@@ -1,0 +1,37 @@
+{
+  "editor.formatOnSave": true,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "editor.codeActionsOnSave": {
+    // 保存时  开启保存时执行eslint进行格式化
+    "source.fixAll.eslint": true
+  },
+
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      // 保存时  开启保存时执行stylelint进行格式化
+      "source.fixAll.stylelint": true,
+      // 保存时  开启保存时执行eslint进行格式化
+      "source.fixAll.eslint": true
+    }
+  },
+
+  "[css]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": false
+    }
+  },
+
+  "[scss]": {
+    "editor.codeActionsOnSave": {
+      // 保存时  开启保存时执行stylelint进行格式化
+      "source.fixAll.stylelint": true
+    }
+  },
+
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss", "vue"]
+}

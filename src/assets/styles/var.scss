@@ -1,0 +1,131 @@
+//set border line to 0.5px
+//set line to 0.5px
+// @param  {[string]} $direction   [top][bottom][left][right]
+// @param  {[string]} $color       border color，default color #e8e8ed
+@mixin thin-line($direction, $color: #e8e8ed) {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  background: $color;
+  @if $direction == top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    // prettier-ignore
+    height: 1PX;
+    transform: scaleY(0.5);
+    transform-origin: 0 0;
+  } @else if $direction == bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    // prettier-ignore
+    height: 1PX;
+    transform: scaleY(0.5);
+    transform-origin: 0 0;
+  } @else if $direction == left {
+    top: 0;
+    left: 0;
+    // prettier-ignore
+    width: 1PX;
+    height: 100%;
+    transform: scaleX(0.5);
+    transform-origin: 0 0;
+  } @else if $direction == right {
+    top: 0;
+    right: 0;
+    // prettier-ignore
+    width: 1PX;
+    height: 100%;
+    transform: scaleX(0.5);
+    transform-origin: 0 0;
+  }
+}
+@mixin set-line($direction, $color: #e8e8ed) {
+  position: relative;
+  &::before {
+    @include thin-line($direction, $color);
+  }
+}
+
+// @param  {[string]} $color      border color #e8e8e8
+// @param  {[number]} $radius     [0] radius size 0
+@mixin border-line($color: #d8d8d8, $radius: 0) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  // prettier-ignore
+  border: 1PX solid $color;
+  border-radius: $radius;
+  width: 200%;
+  height: 200%;
+  content: '';
+  box-sizing: border-box;
+  pointer-events: none;
+  transform-origin: 0 0;
+  transform: scale3d(0.5, 0.5, 1);
+}
+
+@mixin set-line-border($color: #d8d8d8, $radius: 0) {
+  position: relative;
+  &::before {
+    @include border-line($color, $radius);
+  }
+}
+// triangle
+// @param  {[string]} $direction   [top][bottom][left][right]
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  content: '';
+  @if $direction == top {
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if $direction == bottom {
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-right: $size solid $color;
+    border-bottom: $size solid transparent;
+  }
+}
+// @example
+// SCSS
+// .example {
+//   @include triangle(left, 10px, red);
+// }
+
+// ...
+@mixin ellipsis($lines: 1, $substract: 0) {
+  @if $lines == 1 {
+    overflow: hidden;
+    width: 100% - $substract;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    display: box;
+    overflow: hidden;
+    -webkit-line-clamp: $lines;
+    line-clamp: $lines;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    // box-orient: vertical;
+  }
+}
+// @example
+// SCSS
+// .single-ellipsis {
+//   @include ellipsis;
+// }
+// .multi-ellipsis {
+//   @include ellipsis(2);
+// }

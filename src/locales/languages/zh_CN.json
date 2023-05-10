@@ -1,0 +1,17 @@
+{
+  "msg": "你好 世界!",
+  "axios.request.loading": "加载中...",
+  "axios.error.400": "请求错误",
+  "axios.error.401": "无权限",
+  "axios.error.403": "拒绝访问",
+  "axios.error.404": "请求地址错误",
+  "axios.error.408": "请求超时",
+  "axios.error.500": "服务器内部错误",
+  "axios.error.501": "服务未实现",
+  "axios.error.502": "网关错误",
+  "axios.error.503": "服务不可用",
+  "axios.error.504": "网关超时",
+  "axios.error.505": "HTTP版本不支持",
+  "axios.error.noResponse": "请求无响应",
+  "axios.error.default": "服务器错误"
+}

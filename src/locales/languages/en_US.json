@@ -1,0 +1,7 @@
+{
+  "msg": "hello world!",
+  "loading": "Loading...",
+  "axios.error.timeout": "Request Timedout",
+  "axios.error.noResponse": "Request No Response",
+  "axios.error.network": "Network Error"
+}

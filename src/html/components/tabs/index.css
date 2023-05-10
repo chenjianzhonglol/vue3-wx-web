@@ -1,0 +1,231 @@
+.cm-tabs .van-tabs {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.cm-tabs .van-tabs__nav--line {
+  padding-bottom: 0;
+}
+.cm-tabs .van-tab {
+  padding-right: 16px;
+}
+.cm-tabs .van-tab:first-of-type {
+  padding-left: 5px;
+}
+.cm-tabs .van-tab:nth-last-of-type(2) {
+  margin-right: 24px;
+}
+.cm-tabs .van-tab--grow {
+  margin: 0 5px;
+  padding: 0 3px;
+}
+.cm-tabs .van-tab--grow:last-of-type {
+  padding-right: 30px;
+}
+.cm-tabs .van-tab--grow .van-badge {
+  right: -2px;
+  border: 0;
+  padding: 2px 5px;
+  font-size: 8px;
+  font-weight: normal;
+  background: var(--theme-gradient-9);
+}
+.cm-tabs .van-tab--active {
+  position: relative;
+  font-size: 17px;
+  color: var(--theme-txt);
+}
+.cm-tabs .van-tab--active::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -6px;
+  border-radius: 2px;
+  width: 100%;
+  height: 12px;
+  background: var(--theme-gradient-4);
+  content: "";
+}
+.cm-tabs .van-tab--active::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 36px;
+  height: 33px;
+  background: url(../../../assets/images/home/active.png) no-repeat center center/contain;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+.cm-tabs .van-tab--active a,
+.cm-tabs .van-tab--active span {
+  position: relative;
+  z-index: 2;
+}
+.cm-tabs .van-tab.casino {
+  width: 53px;
+  font-size: 0;
+  background: url(../../../assets/images/home/casino.png) no-repeat center center/contain;
+}
+.cm-tabs .van-tab.casino.active, .cm-tabs .van-tab.casino.van-tab--active {
+  font-size: 0;
+}
+.cm-tabs .van-tab.casino.active::before, .cm-tabs .van-tab.casino.active::after, .cm-tabs .van-tab.casino.van-tab--active::before, .cm-tabs .van-tab.casino.van-tab--active::after {
+  display: none;
+}
+
+.cm-tabs-more {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 2;
+  width: 32px;
+  height: 42px;
+  flex-shrink: 0;
+  background: url(../../../assets/images/home/dot.png) no-repeat center center;
+  background-size: 10px 30px;
+}
+.cm-tabs-more::after {
+  display: none;
+}
+.cm-tabs-more.van-dropdown-menu__title--active {
+  background-color: var(--theme-black-4);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 2px var(--theme-red-1);
+}
+
+.tabs-dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.tabs-dropdown .van-dropdown-menu__bar {
+  width: 100%;
+  height: 100%;
+  background: var(--theme-gradient-5);
+}
+.tabs-dropdown .van-popup {
+  background-color: var(--theme-black-4);
+}
+
+.bet-game-tabs {
+  position: relative;
+}
+.bet-game-tabs::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 20px;
+  height: 44px;
+  background: var(--theme-gradient-7);
+  content: "";
+}
+.bet-game-tabs .tab-live-icon,
+.bet-game-tabs .tab-cup-icon {
+  position: relative;
+  top: -2px;
+  margin: 0 16px 0 10px;
+  padding: 0;
+  width: 38px;
+  height: 40px;
+  font-size: 0;
+  flex: 0 0 38px;
+  flex-shrink: 0;
+}
+.bet-game-tabs .tab-live-icon.van-tab--grow,
+.bet-game-tabs .tab-cup-icon.van-tab--grow {
+  margin-right: 13px;
+  margin-left: 7px;
+}
+.bet-game-tabs .tab-live-icon {
+  background: url(../../../assets/images/home/live.png) no-repeat center center/contain;
+}
+.bet-game-tabs .tab-cup-icon {
+  background: url(../../../assets/images/home/cup.png) no-repeat center center/contain;
+}
+.bet-game-tabs .van-tab--active {
+  font-size: 16px;
+  color: var(--theme-bg-2);
+}
+.bet-game-tabs .van-tab--active::before {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  display: block;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 16px;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(var(--theme-bg), transparent);
+  background-clip: padding-box;
+  content: "";
+}
+.bet-game-tabs .van-tab--active::after {
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  z-index: 1;
+  border-radius: 10px 10px 0 0;
+  width: calc(100% - 2px);
+  height: 18px;
+  background: var(--theme-gradient-6);
+  content: "";
+  transform: none;
+}
+.bet-game-tabs .van-tab--active .van-tab__text {
+  z-index: 2;
+}
+.bet-game-tabs .van-tab--grow {
+  padding: 0 10px;
+  margin: 0 3px;
+}
+
+.bet-menus {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  height: 36px;
+}
+
+.bet-menu-list {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding: 0 2px 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-flow: row nowrap;
+}
+.bet-menu-list .bet-menu-col {
+  display: inline-block;
+  margin: 0 4px;
+  border-radius: 12px;
+  padding: 0 10px;
+  min-width: 50px;
+  text-align: center;
+  white-space: nowrap;
+  background: var(--theme-black-2);
+  line-height: 24px;
+  word-break: keep-all;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.bet-menu-list .bet-menu-col.active {
+  font-weight: bold;
+  background: var(--theme-gradient-8);
+}
+
+.bet-menu-more {
+  display: inline-block;
+  margin-right: 5px;
+  width: 30px;
+  height: 20px;
+  background: url(../../../assets/images/home/colorful.png) no-repeat center center/contain;
+  flex-shrink: 0;
+}

@@ -1,0 +1,7 @@
+{
+  "msg": "你好 世界!",
+  "axios.request.loading": "加载中...",
+  "axios.error.timeout": "请求超时",
+  "axios.error.noResponse": "请求无响应",
+  "axios.error.network": "网络异常"
+}

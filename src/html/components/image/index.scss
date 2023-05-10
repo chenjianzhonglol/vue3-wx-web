@@ -1,0 +1,45 @@
+.cy-image {
+  position: relative;
+  display: inline-block;
+
+  &--round {
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+      border-radius: inherit;
+    }
+  }
+
+  &__img,
+  &__error,
+  &__loading {
+    display: block;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__error,
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #969799;
+    background-color: #f7f8fa;
+    flex-direction: column;
+  }
+
+  &__loading-icon {
+    font-size: 32px;
+    color: #dcdee0;
+  }
+
+  &__error-icon {
+    font-size: 32px;
+    color: #dcdee0;
+  }
+}

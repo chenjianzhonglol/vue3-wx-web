@@ -1,0 +1,5 @@
+node_modules
+
+/src/common/lib/xgplayer
+# 忽略css文件
+**/*.css

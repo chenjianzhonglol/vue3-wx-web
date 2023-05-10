@@ -1,0 +1,73 @@
+/*swiper start*/
+.bet-swiper.van-swipe {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  margin: 0 12px;
+  height: 126px;
+  .van-swipe-item,
+  .bet-banner-pic {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  .bet-banner-pic {
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+.bet-adx-double {
+  display: flex;
+  margin: 12px;
+  height: 66px;
+  .adx-double-item {
+    overflow: hidden;
+    border-radius: 4px;
+    flex: 1;
+    + .adx-double-item {
+      margin-left: 7px;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+}
+.bet-adx-sm {
+  overflow: hidden;
+  margin: 4px 12px;
+  border-radius: 4px;
+  height: 56px;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.bet-download-x {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .bet-download-close {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-block;
+    margin-top: -10px;
+    width: 48px;
+    height: 20px;
+    background: url(../../../assets/images/close.png) no-repeat center center/contain;
+  }
+}

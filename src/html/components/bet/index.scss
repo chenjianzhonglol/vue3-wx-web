@@ -1,0 +1,278 @@
+@import '../../../assets/styles/var';
+// live
+.bet-game {
+  border-radius: 10px 10px 0 0;
+  padding-top: 12px;
+  background: var(--theme-gradient-6);
+  + .bet-game {
+    margin-top: 9px;
+  }
+}
+
+.bet-game-x {
+  font-size: 12px;
+  color: var(--theme-txt-1);
+}
+.bet-game-msg {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: var(--theme-black-2);
+  line-height: 20px;
+  .game-time {
+    min-width: 0;
+    flex: 1;
+  }
+}
+.game-cols {
+  display: inline-flex;
+  width: 165px;
+  &.game-odds {
+    .game-col {
+      border-radius: 4px;
+      height: 35px;
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--theme-bg-4);
+      background-color: var(--theme-black-2);
+      line-height: 35px;
+      &.active {
+        color: var(--theme-txt);
+        background-color: var(--theme-bg-2);
+      }
+      .icon-lock {
+        font-size: 18px;
+        color: var(--theme-txt-1);
+      }
+    }
+  }
+}
+.game-col {
+  margin-left: 5px;
+  text-align: center;
+  flex: 1;
+  &.g-up,
+  &.g-down {
+    position: relative;
+    &::after {
+      position: absolute;
+      left: 50%;
+      margin-left: -2px;
+      width: 0;
+      height: 0;
+      content: '';
+    }
+  }
+  &.g-up::after {
+    top: 2px;
+    border-right: 4px solid transparent;
+    border-bottom: 5px solid var(--theme-green);
+    border-left: 4px solid transparent;
+  }
+  &.g-down::after {
+    bottom: 2px;
+    border-top: 5px solid var(--theme-red);
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+}
+.bet-game-item {
+  margin: 0 15px;
+  padding-bottom: 10px;
+  + .bet-game-item {
+    border-top: 1px solid var(--theme-black-3);
+  }
+  &.g-euro {
+    background: url(../../../assets/images/euro.png) no-repeat 78px 30px;
+    background-size: 74px 74px;
+  }
+}
+.bet-game-classify {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  .bet-time {
+    display: inline-flex;
+    margin-right: 5px;
+    color: var(--theme-bg-4);
+    .c-dot {
+      font-size: inherit;
+      animation: bling 1s infinite;
+    }
+    &.c-blue {
+      color: var(--theme-blue);
+    }
+  }
+  .van-ellipsis {
+    min-width: 0;
+    flex: 1;
+  }
+  .iconfont {
+    margin-left: 8px;
+    color: #333;
+  }
+}
+.bet-hot-icon {
+  display: inline-block;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  background: url(../../../assets/images/home/hot.png) no-repeat center center/contain;
+  flex-shrink: 0;
+}
+@keyframes bling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bet-game-team {
+  display: flex;
+  margin: 8px 0 4px;
+  color: var(--theme-txt);
+  .team-cols {
+    min-width: 0;
+    flex: 1;
+  }
+  .team-col {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+  .cy-image {
+    margin-right: 5px;
+    flex-shrink: 0;
+  }
+  .team-score {
+    margin-left: 5px;
+    min-width: 32px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    .c-high {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--theme-bg-2);
+      &::after {
+        position: absolute;
+        right: 9px;
+        border-top: 3px solid transparent;
+        border-right: 4px solid currentColor;
+        border-bottom: 3px solid transparent;
+        width: 0;
+        height: 0;
+        content: '';
+      }
+    }
+  }
+}
+.team-market-txt {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--theme-txt-1);
+  &::after {
+    display: inline-block;
+    margin-left: 1px;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    width: 5px;
+    height: 5px;
+    color: currentColor;
+    background: transparent;
+    content: '';
+    vertical-align: middle;
+    transform: rotate(135deg);
+  }
+  &:hover,
+  &:active,
+  &:visited {
+    color: inherit;
+  }
+}
+.bet-game-more {
+  display: block;
+  margin: 0 15px;
+  border-top: 1px solid var(--theme-black-3);
+  width: calc(100% - 30px);
+  height: 30px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255, 255, 255, 0);
+  &::after {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    margin-left: 5px;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    width: 5px;
+    height: 5px;
+    color: currentColor;
+    background: transparent;
+    transition: transform 0.3s;
+    content: '';
+    vertical-align: middle;
+    transform: rotate(-135deg);
+  }
+  &.g-up {
+    &::after {
+      top: 2px;
+      transform: rotate(45deg);
+    }
+  }
+}
+.filter-dropdown {
+  .van-dropdown-menu__item {
+    + .van-dropdown-menu__item {
+      @include set-line(left, var(--theme-black-3));
+      &::before {
+        top: 25%;
+        height: 50%;
+      }
+    }
+  }
+  .van-dropdown-menu__bar {
+    height: 36px;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+  }
+  .van-dropdown-menu__title {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--theme-txt);
+    .van-ellipsis {
+      overflow: visible;
+      margin-right: 3px;
+    }
+    &::after {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      border-color: transparent transparent var(--theme-txt) var(--theme-txt);
+      opacity: 1;
+    }
+  }
+  .van-dropdown-menu__title--down:after {
+    top: 3px;
+  }
+  .van-popup {
+    background: var(--theme-black-3);
+  }
+  .van-cell {
+    background: transparent;
+  }
+  .van-cell__value.txt-left {
+    text-align: left;
+    color: var(--theme-txt);
+  }
+}

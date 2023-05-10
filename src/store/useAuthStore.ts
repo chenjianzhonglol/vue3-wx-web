@@ -1,3 +1,5 @@
+import { FetchUserInfo } from '@/api/user';
+
 export default defineStore('auth', {
   state: () => ({
     token: ''
@@ -6,7 +8,8 @@ export default defineStore('auth', {
     setToken(token: string) {
       this.token = token;
     },
-    async getToken() {
+    async getToken(code: string) {
+      const { data } = await FetchUserInfo({ code });
       this.token = 'ceshi';
     }
   },
